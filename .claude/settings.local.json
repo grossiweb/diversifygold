@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Mujahid/diversifygold/components//**)",
+      "Read(//c/Users/Mujahid/diversifygold/pages/**)",
+      "Read(//c/Users/Mujahid/diversifygold/**)",
+      "Bash(npm install)",
+      "Bash(npm install next@latest)"
+    ]
+  }
+}

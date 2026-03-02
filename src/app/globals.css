@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-gold: #D8B150;
+    --brand-gold-dark: #D4AF36;
+    --brand-dark: #3B3B3B;
+    --brand-beige: #F6F0DD;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #3B3B3B;
+    background-color: white;
+    font-family: var(--font-inter), Inter, sans-serif;
+    font-size: 16px;
+  }
+
+  p, span {
+    font-weight: 500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(137deg, #D9B640 3.04%, #F6DC6E 38.46%, #C09B25 68.3%, #D0AC34 100%);
+    backdrop-filter: blur(7.5px);
+    color: #000000;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-gold:hover {
+    opacity: 0.9;
+  }
+
+  .btn-gold:active {
+    transform: scale(0.95);
+  }
+
+  .btn-outline-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid #D8B150;
+    color: #D8B150;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-outline-gold:hover {
+    background-color: #D8B150;
+    color: white;
+  }
+
+  .btn-outline-gold:active {
+    transform: scale(0.95);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #3B3B3B;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    background-color: #F6F0DD;
+  }
+
+  .section-heading {
+    @apply text-2xl md:text-3xl lg:text-4xl font-normal;
+    color: #3B3B3B;
+  }
+
+  .gold-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(216, 177, 80, 0.1);
+    color: #D8B150;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+  }
+
+  .container-xl {
+    @apply max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .nav-link {
+    @apply text-[13px] font-bold tracking-wider uppercase transition-colors duration-200;
+  }
+}
+
+/* Ticker animation */
+.ticker-track {
+  display: flex;
+  animation: ticker 40s linear infinite;
+  width: max-content;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Gold shimmer effect */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #D8B150 0%,
+    #F0D090 50%,
+    #D4AF36 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

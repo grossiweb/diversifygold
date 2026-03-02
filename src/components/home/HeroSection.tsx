@@ -75,20 +75,6 @@ export default function HeroSection({
               </Link>
             </div>
           </div>
-
-          {/* Right: gold coin image */}
-          <div className="hidden lg:flex justify-center">
-            <div className="relative w-64 h-64">
-              <div className="absolute inset-0 rounded-full bg-brand-gold/10 blur-3xl" />
-              <Image
-                src="/images/hero-coin.png"
-                alt="Gold coin"
-                width={203}
-                height={195}
-                className="relative w-full h-full object-contain drop-shadow-2xl"
-              />
-            </div>
-          </div>
         </div>
       </div>
 

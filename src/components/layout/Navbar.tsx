@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Phone, Menu, X, ChevronDown } from 'lucide-react'
 
 const navLinks = [
@@ -26,6 +27,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,11 +39,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const textColor = scrolled ? 'text-black' : 'text-white'
+  // Inner pages always use black text; homepage uses white when not scrolled
+  const textColor = isHome && !scrolled ? 'text-white' : 'text-[#3B3B3B]'
   const hoverColor = 'hover:text-brand-gold'
 
   return (
-    <nav className={`transition-colors duration-300 ${scrolled ? 'bg-white' : 'bg-transparent'}`}>
+    <nav className={`transition-colors duration-300 ${isHome && !scrolled ? 'bg-transparent' : 'bg-white'}`}>
       <div className="container-xl">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}

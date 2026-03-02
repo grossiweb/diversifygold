@@ -47,7 +47,7 @@ export default function BlogSection({ posts }: BlogSectionProps) {
         {/* Heading */}
         <div className="text-center mb-14 flex flex-col items-center gap-3">
           <span className="gold-badge">Blog &amp; News</span>
-          <h2 className="text-2xl lg:text-3xl text-black font-normal">
+          <h2 className="text-2xl lg:text-3xl text-[#3B3B3B] font-normal">
             Looking To Learn More?
           </h2>
           <p className="text-brand-dark/60 text-base max-w-xl">

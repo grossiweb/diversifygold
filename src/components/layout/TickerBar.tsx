@@ -25,7 +25,7 @@ export default function TickerBar() {
             height={21}
             className="object-contain"
           />
-          <span className="text-black text-xs font-bold tracking-widest uppercase">
+          <span className="text-[#3B3B3B] text-xs font-bold tracking-widest uppercase">
             US Owned &amp; Operated
           </span>
         </div>

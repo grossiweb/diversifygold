@@ -20,7 +20,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   // Pages with a full-bleed hero where the nav overlays
-  const heroPages = ['/', '/precious-metals-ira', '/home-delivery', '/about', '/news']
+  const heroPages = ['/', '/precious-metals-ira', '/home-delivery', '/about', '/news', '/products']
   const hasHero = heroPages.includes(pathname)
 
   useEffect(() => {

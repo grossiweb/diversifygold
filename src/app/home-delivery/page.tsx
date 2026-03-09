@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Phone, Calendar, Package, Lock, Truck, RefreshCw } from 'lucide-react'
+import Image from 'next/image'
+import { Phone, Calendar } from 'lucide-react'
+import FeaturedOnSection from '@/components/home/FeaturedOnSection'
+import BlogSection from '@/components/home/BlogSection'
 
 export const metadata: Metadata = {
   title: 'Home Delivery – Physical Gold & Silver Delivered to Your Door',
@@ -8,109 +11,401 @@ export const metadata: Metadata = {
     'Buy physical gold and silver coins and bars with free nationwide delivery. Secure, insured shipping direct to your door.',
 }
 
-const features = [
-  { icon: Package, title: 'Wide Selection', desc: 'Hundreds of gold, silver, platinum, and palladium products to choose from.' },
-  { icon: Lock, title: 'Secure & Insured', desc: 'Every shipment is fully insured and discreetly packaged for your peace of mind.' },
-  { icon: Truck, title: 'Free Nationwide Shipping', desc: 'Free shipping on qualifying orders throughout the continental United States.' },
-  { icon: RefreshCw, title: 'No-Fee Buyback', desc: 'We buy back metals purchased from us at competitive market prices — no fees.' },
+const steps = [
+  {
+    title: 'Browse & select',
+    desc: 'Choose from our wide selection of gold, silver, and other precious metal products — coins, bars, and more.',
+  },
+  {
+    title: 'Speak with a specialist',
+    desc: 'Our knowledgeable team will walk you through your options and help you choose the right metals for your goals.',
+  },
+  {
+    title: 'Secure payment',
+    desc: 'Complete your purchase securely online or over the phone with one of our specialists. Multiple payment methods available.',
+  },
+  {
+    title: 'Order confirmation',
+    desc: 'Your order is confirmed and your prices are locked in, protected from price fluctuations. You now own precious metals.',
+  },
+  {
+    title: 'Fully insured shipment',
+    desc: 'Your metals are carefully packaged and shipped with full insurance coverage. Every shipment is discreetly packaged for your peace of mind.',
+  },
+  {
+    title: 'Free nationwide shipping',
+    desc: 'Free shipping on qualifying orders throughout the continental United States. Tracking provided on all orders.',
+  },
+  {
+    title: 'Receive your metals',
+    desc: 'Your authentic, IRS-eligible gold and silver are delivered right to your door. Hold real wealth in your hands.',
+  },
+  {
+    title: 'Secure storage at home',
+    desc: 'Store your metals safely at home in a personal safe or vault. We can advise on secure storage options.',
+  },
+  {
+    title: 'No-fee buyback',
+    desc: 'We buy back metals purchased from us at competitive market prices — no fees. Liquidate easily and quickly when you choose.',
+  },
+  {
+    title: 'Ongoing support',
+    desc: 'Schedule periodic reviews to rebalance your holdings. Our team is always available to help you grow your portfolio.',
+  },
+]
+
+const infoCards = [
+  {
+    icon: '/images/ira/icon-diversify.png',
+    title: 'Why buy physical gold & silver?',
+    desc: 'Owning physical precious metals gives you direct control over your wealth. Unlike paper assets, gold and silver are tangible, portable, and have held their value for thousands of years. Diversify your savings with real, hold-in-your-hand assets.',
+  },
+  {
+    icon: '/images/ira/icon-rollover.png',
+    title: 'Secure & insured delivery',
+    desc: 'Every shipment is fully insured and discreetly packaged for your peace of mind. We use trusted carriers with signature confirmation and tracking on all orders so your metals arrive safely.',
+  },
+  {
+    icon: '/images/ira/icon-qualify.png',
+    title: 'Wide selection of products',
+    desc: 'Hundreds of gold, silver, platinum, and palladium products to choose from — including popular coins like American Eagles and Canadian Maple Leafs, plus bars in a variety of sizes to fit any budget.',
+  },
 ]
 
 export default function HomeDeliveryPage() {
   return (
-    <div className="bg-white">
-      {/* Hero */}
-      <section
-        className="py-24 lg:py-36 relative"
-        style={{ background: 'linear-gradient(135deg, #09111A 0%, #1a2535 100%)' }}
-      >
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
-        <div className="container-xl text-center flex flex-col items-center gap-6">
-          <span className="gold-badge">Home Delivery</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white font-light max-w-3xl leading-tight">
-            Physical Gold &amp; Silver Delivered to Your Door
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Purchase authentic, IRS-eligible gold and silver with free insured shipping nationwide. Hold real wealth in your hands.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Link href="/products" className="btn-gold flex items-center gap-2">
-              Shop Products
-            </Link>
-            <Link href="/contact" className="btn-outline-gold flex items-center gap-2">
-              <Calendar className="w-4 h-4" /> Free Consultation
-            </Link>
+    <div className="bg-[#FFFCF3]">
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative -mt-[108px] lg:-mt-[124px]" style={{ isolation: 'isolate' }}>
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/ira/hero-bg.png"
+            alt="Home Delivery background"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={90}
+          />
+        </div>
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-60" />
+
+        <div className="relative container-xl pt-48 lg:pt-56 pb-20 lg:pb-28">
+          <div className="flex flex-col items-start gap-6 max-w-2xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-[40px] text-white font-light leading-tight">
+              Home Delivery
+            </h1>
+            <p className="text-gray-300 text-xl lg:text-2xl font-serif">
+              Physical gold &amp; silver delivered to your door
+            </p>
+            <p className="text-gray-400 text-lg">Interested in learning more?</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="tel:+18667614262" className="btn-gold flex items-center gap-2">
+                <Phone className="w-5 h-5" /> Call Now
+              </a>
+              <Link href="/contact" className="btn-gold flex items-center gap-2">
+                <Calendar className="w-5 h-5" /> Schedule a Call
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 lg:py-24 bg-brand-beige">
+      {/* ===== WHY BUY PHYSICAL GOLD & SILVER ===== */}
+      <section className="py-16 lg:py-24 bg-[#FFFCF3]">
         <div className="container-xl">
-          <h2 className="text-3xl text-brand-dark font-normal text-center mb-12">
-            Why Buy Physical Gold &amp; Silver?
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((f) => (
-              <div key={f.title} className="bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-sm border border-gray-100">
-                <div className="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center">
-                  <f.icon className="w-6 h-6 text-brand-gold" />
-                </div>
-                <h3 className="font-bold text-brand-dark">{f.title}</h3>
-                <p className="text-sm text-brand-dark/70 leading-relaxed">{f.desc}</p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/ira/portfolio-image.png"
+                alt="Physical gold and silver for home delivery"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="flex flex-col gap-4">
+              <h2 className="text-2xl lg:text-[32px] text-brand-dark font-normal leading-snug">
+                Hold real wealth in your hands
+              </h2>
+              <p className="text-brand-dark text-lg leading-relaxed">
+                Purchase authentic, IRS-eligible gold and silver with free insured shipping
+                nationwide. We are a top-rated gold and silver company that specializes in helping
+                individuals buy physical precious metals for home delivery. Whether you&apos;re just
+                starting or looking to expand your existing collection, owning physical gold and
+                silver provides stability and tangible value you can hold.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <a href="tel:+18667614262" className="btn-gold flex items-center gap-2">
+                  <Phone className="w-5 h-5" /> (866) 761-4262
+                </a>
+                <Link href="/contact" className="btn-gold flex items-center gap-2">
+                  <Calendar className="w-5 h-5" /> Schedule a Call
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== THREE INFO CARDS ===== */}
+      <section className="py-16 lg:py-24 bg-[#F7F0DD]">
+        <div className="container-xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {infoCards.map((card) => (
+              <div key={card.title} className="flex flex-col items-center text-center gap-3">
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+                <h3 className="text-brand-dark text-xl lg:text-2xl font-normal">{card.title}</h3>
+                <p className="text-brand-dark text-sm leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* ===== EXCLUSIVE BUY BACK COMMITMENT ===== */}
+      <section className="bg-[#F7F0DD] pb-16">
         <div className="container-xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl text-brand-dark font-normal mb-8">
-                How It Works
-              </h2>
-              <div className="flex flex-col gap-6">
-                {[
-                  { n: '1', t: 'Browse & Select', d: 'Choose from our wide selection of gold, silver, and other precious metal products.' },
-                  { n: '2', t: 'Secure Payment', d: 'Complete your purchase securely online or over the phone with one of our specialists.' },
-                  { n: '3', t: 'Fully Insured Shipment', d: 'Your metals are carefully packaged and shipped with full insurance coverage.' },
-                  { n: '4', t: 'Hold Real Wealth', d: 'Receive your authentic precious metals and take control of your financial future.' },
-                ].map((item) => (
-                  <div key={item.n} className="flex gap-4">
-                    <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
-                      {item.n}
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-brand-dark mb-1">{item.t}</h3>
-                      <p className="text-sm text-brand-dark/70">{item.d}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div
+            className="flex items-center justify-center gap-8 py-10 px-8 rounded-2xl"
+            style={{ background: 'linear-gradient(180deg, #1F2733, #0B0F17)' }}
+          >
+            <Image
+              src="/images/ira/gold-divider-left.png"
+              alt=""
+              width={66}
+              height={1}
+              className="hidden sm:block opacity-60"
+            />
+            <div className="text-center max-w-md">
+              <h3 className="text-[#D4AF36] text-2xl lg:text-[28px] font-normal mb-2">
+                Exclusive Buy Back Commitment
+              </h3>
+              <p className="text-white text-sm leading-relaxed">
+                With any investment you want to be able to liquidate easily and quickly which is why
+                both of our programs qualify for our zero buy back fee commitment exclusively for
+                Diversify Gold clients.
+              </p>
             </div>
+            <Image
+              src="/images/ira/gold-divider-right.png"
+              alt=""
+              width={66}
+              height={1}
+              className="hidden sm:block opacity-60"
+            />
+          </div>
+        </div>
+      </section>
 
-            <div className="w-full aspect-square lg:aspect-auto lg:h-[500px] bg-gradient-to-br from-brand-beige to-brand-gold/20 rounded-2xl flex items-center justify-center">
-              <div className="text-center px-8">
-                <div className="text-7xl mb-4">📦</div>
-                <p className="text-brand-dark font-semibold text-lg">Free Insured Shipping</p>
-                <p className="text-brand-dark/60 text-sm mt-2">Nationwide delivery on qualifying orders</p>
+      {/* ===== GOLD & SILVER COINS AND BARS ===== */}
+      <section className="relative py-16 lg:py-20">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/ira/coins-section-bg.png"
+            alt=""
+            fill
+            className="object-cover object-top"
+          />
+        </div>
+        <div className="relative container-xl text-center">
+          <h2 className="text-2xl lg:text-[32px] text-brand-dark font-normal mb-3">
+            Browse Our Gold &amp; Silver Coins and Bars
+          </h2>
+          <p className="text-brand-dark text-sm mb-10">
+            Wide selection of authentic products available for home delivery.
+          </p>
+          <div className="relative w-full max-w-5xl mx-auto aspect-[7/1]">
+            <Image
+              src="/images/ira/coins-strip.png"
+              alt="Gold and silver coins and bars for home delivery"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FEATURED ON ===== */}
+      <FeaturedOnSection />
+
+      {/* ===== TWO WAYS TO DIVERSIFY ===== */}
+      <section className="py-16 lg:py-24 bg-[#FFFCF3]">
+        <div className="container-xl">
+          <div
+            className="rounded-[32px] overflow-hidden relative"
+            style={{ boxShadow: '0px 4px 60px #D8B1504D' }}
+          >
+            <div className="absolute inset-0">
+              <Image
+                src="/images/ira/two-ways-bg.png"
+                alt=""
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/ira/two-ways-inner.png"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="relative grid lg:grid-cols-2 gap-8">
+                {/* Left panel */}
+                <div className="flex flex-col items-start justify-end p-8 lg:p-16 min-h-[350px]">
+                  <Image
+                    src="/images/ira/logo-card.png"
+                    alt="Diversify Gold"
+                    width={265}
+                    height={71}
+                    className="mb-6 object-contain"
+                  />
+                  <p className="text-white text-lg font-bold leading-snug">
+                    Diversify Gold Inc.
+                    <br />A Simple and Easy Change
+                  </p>
+                </div>
+
+                {/* Right panel */}
+                <div className="flex flex-col items-start justify-center p-8 lg:p-16 gap-6">
+                  <div>
+                    <h2 className="text-brand-dark text-2xl lg:text-[32px] font-normal mb-2">
+                      Two ways to Diversify
+                    </h2>
+                    <p className="text-[#D4AF36] text-xl lg:text-[32px] font-normal font-serif">
+                      Cash Savings &amp; Retirement Accounts
+                    </p>
+                  </div>
+
+                  <div className="bg-[#FFF5DF] rounded-2xl py-5 px-6">
+                    <p className="text-brand-dark text-sm font-bold uppercase tracking-wider">
+                      Call Now
+                    </p>
+                    <a
+                      href="tel:+18667614262"
+                      className="text-brand-dark text-2xl font-light hover:text-brand-gold transition-colors"
+                    >
+                      (866) 761-4262
+                    </a>
+                  </div>
+
+                  <Link href="/contact" className="btn-gold">
+                    Schedule a Call
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-brand-beige text-center">
+      {/* ===== NO-OBLIGATION EDUCATION ===== */}
+      <section className="py-16 lg:py-24 bg-[#FFFCF3]">
+        <div className="container-xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/ira/education-image.png"
+                alt="No-obligation education"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="flex flex-col gap-6">
+              <h2 className="text-2xl lg:text-[32px] text-brand-dark font-normal leading-snug">
+                No-Obligation Education — Take Control of Your Financial Future
+              </h2>
+              <p className="text-[#D4AF36] text-base leading-relaxed">
+                The best part? All of this is no-obligation education. Take a few minutes to
+                understand how gold and silver can help diversify your cash savings. When
+                you&apos;re ready, you&apos;ll have the knowledge to make confident, informed
+                decisions about adding precious metals to your collection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== STEP-BY-STEP GUIDE ===== */}
+      <section className="py-16 lg:py-24 bg-[#F6F0DD]">
+        <div className="container-xl">
+          <h2 className="text-2xl lg:text-[32px] text-brand-dark font-normal mb-12 max-w-2xl">
+            Step-by-step guide: How home delivery works
+          </h2>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Steps timeline */}
+            <div className="flex flex-col">
+              {steps.map((step, i) => (
+                <div key={step.title} className="flex gap-4">
+                  {/* Timeline dot and line */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-3 h-3 rounded-full bg-brand-gold flex-shrink-0 mt-2" />
+                    {i < steps.length - 1 && (
+                      <div className="w-[1px] bg-brand-gold/40 flex-1 min-h-[24px]" />
+                    )}
+                  </div>
+                  {/* Content */}
+                  <div className="pb-6">
+                    <h3 className="text-brand-dark text-lg lg:text-xl font-medium mb-1">
+                      {step.title}
+                    </h3>
+                    {step.desc && (
+                      <p className="text-brand-dark/70 text-sm leading-relaxed">{step.desc}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              {/* Tips box */}
+              <div className="mt-4 bg-[#FFFCF3] rounded-lg py-4 px-5">
+                <p className="text-brand-dark text-sm">
+                  <span className="font-bold">Tips:</span> All shipments are fully insured.
+                  Free shipping on qualifying orders. Discreet packaging on every delivery.
+                </p>
+              </div>
+            </div>
+
+            {/* Steps image */}
+            <div className="relative w-full aspect-[9/10] rounded-2xl overflow-hidden hidden lg:block">
+              <Image
+                src="/images/ira/steps-image.png"
+                alt="Gold and silver home delivery step by step"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== BLOG & NEWS ===== */}
+      <BlogSection />
+
+      {/* ===== FINAL CTA ===== */}
+      <section className="py-16 lg:py-20 bg-[#FFFCF3] text-center">
         <div className="container-xl flex flex-col items-center gap-6">
-          <h2 className="text-3xl text-brand-dark font-normal">Start Building Your Physical Stack</h2>
+          <h2 className="text-2xl lg:text-3xl text-brand-dark font-normal">
+            Start Building Your Physical Stack
+          </h2>
+          <p className="text-brand-dark/70 max-w-xl">
+            Our specialists are available to answer all your questions about buying physical gold
+            and silver — completely free, no obligation.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="tel:+18667614262" className="btn-gold flex items-center gap-2">
-              <Phone className="w-4 h-4" /> Call Now
+              <Phone className="w-4 h-4" /> Call (866) 761-4262
             </a>
-            <Link href="/products" className="btn-outline-gold">Browse Products</Link>
+            <Link href="/products" className="btn-outline-gold flex items-center gap-2">
+              Browse Products
+            </Link>
           </div>
         </div>
       </section>
